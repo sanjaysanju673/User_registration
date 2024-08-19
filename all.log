@@ -17,3 +17,6 @@
 2024-08-19 22:34:05,461:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
 2024-08-19 22:34:12,633:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
 2024-08-19 22:34:28,964:INFO:UserRegistration.py:The User name is valid
+2024-08-19 22:35:07,739:INFO:UserRegistration.py:The User name is valid
+2024-08-19 22:35:30,009:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
+2024-08-19 22:35:36,156:INFO:UserRegistration.py:The User name is valid
