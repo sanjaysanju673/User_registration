@@ -10,7 +10,7 @@
 
 import unittest
 
-from UserRegistration import valid_firstname,validate_lastname
+from UserRegistration import valid_firstname,validate_lastname,validate_email
 class TestNameValidation(unittest.TestCase):
     def test_firstname(self):
         self.assertTrue(valid_firstname("Sanjay"), "Should be valid")
@@ -47,7 +47,30 @@ class TestNameValidation(unittest.TestCase):
         self.assertFalse(validate_lastname("nai!k"),  "Should be invalid due to  presence of a special character")
         self.assertFalse(validate_lastname("Naik123"), "Should be invalid due to  presence of a Number")
         self.assertFalse(validate_lastname("Naik456"), "Should be invalid due to  presence of a Number")
+    
+    def test_valid_email(self):
+    
+        """
+        Description:
+            Tests the validation function for emails.
 
+        Parameter:
+            self: Instance of the class.
+
+        Return:
+            None
+        """
+
+        self.assertTrue(validate_email("abc.xyz@bl.co.in"), "Should be valid")
+        self.assertTrue(validate_email("sanjay@bl.co"), "Should be valid")
+        self.assertFalse(validate_email("sanjay@blco"), "Should be invalid due to missing dot before TLD")
+        self.assertFalse(validate_email("sanjay@bl.co.in."), "Should be invalid due to trailing dot")
+        self.assertFalse(validate_email("sanjay@gmailcom"), "Should be invalid due to missing dot in domain")
+        self.assertFalse(validate_email("@bl.co"), "Should be invalid due to missing user part")
+        self.assertFalse(validate_email("sanjay@.com"), "Should be invalid due to missing domain part")
+        self.assertFalse(validate_email("sanjay@domain.c"), "Should be invalid due to TLD being too short")
+        self.assertFalse(validate_email("sanjay@domain.toolongtld"), "Should be invalid due to TLD being too long")
+        self.assertFalse(validate_email("sanjaygamil.com"), "Should be invalid due to missing @ symbol")
 
 
 
