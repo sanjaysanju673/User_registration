@@ -1,8 +1,8 @@
 '''
 @Author: v sanjay kumar
-@Date: 2024-08-19 11:30:30
+@Date: 2024-08-19 12:30:30
 @Last Modified by: v sanjay kumar
-@Last Modified time: 2024-08-19 11:30:30.
+@Last Modified time: 2024-08-19 12:30:30.
 @Title :Python programs of User Registration test cases.
 
 '''
@@ -10,7 +10,7 @@
 
 import unittest
 
-from UserRegistration import valid_firstname,validate_lastname,validate_email
+from UserRegistration import valid_firstname,validate_lastname,validate_email,validate_mobile_number
 class TestNameValidation(unittest.TestCase):
     def test_firstname(self):
         self.assertTrue(valid_firstname("Sanjay"), "Should be valid")
@@ -72,6 +72,28 @@ class TestNameValidation(unittest.TestCase):
         self.assertFalse(validate_email("sanjay@domain.toolongtld"), "Should be invalid due to TLD being too long")
         self.assertFalse(validate_email("sanjaygamil.com"), "Should be invalid due to missing @ symbol")
 
+def test_valid_mobile_number(self):
+    
+        """
+        Description:
+            Tests the validation function for mobile number.
+
+        Parameter:
+            self: Instance of the class.
+
+        Return:
+            None
+        """    
+
+        self.assertTrue(validate_mobile_number("91 8431852455"), "Should be valid")
+        self.assertTrue(validate_mobile_number("91 1234567890"), "Should be valid")
+        self.assertTrue(validate_mobile_number("+44 1234567890"), "Should be valid")
+        self.assertFalse(validate_mobile_number("918431852455"), "Should be invalid due to missing space")
+        self.assertFalse(validate_mobile_number("91 84318524"), "Should be invalid due to insufficient digits")
+        self.assertFalse(validate_mobile_number("91 99198198012"), "Should be invalid due to excessive digits")
+        self.assertFalse(validate_mobile_number("91-9919453241"), "Should be invalid due to incorrect separator")
+        self.assertFalse(validate_mobile_number("9919819801"), "Should be invalid due to missing country code")
+        self.assertFalse(validate_mobile_number("91 99345688O1"), "Should be invalid due to non-numeric characters")  
 
 
 if __name__ == "__main__":
