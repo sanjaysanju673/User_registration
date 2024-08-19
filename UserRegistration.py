@@ -21,22 +21,24 @@ def valid_firstname(first_name):
 
     return bool-True or false of the first name
     '''
-    pattern= '(^[A-Z][a-zA-z]{2,})'
+    pattern =r'^[A-Z][a-zA-Z]{2,}$'
+
     
-    if re.search(pattern, first_name) :
+    if re.match(pattern, first_name) :
         return True
     else:
         return False
-
 
 def main():
     first_name=input("Enter a first name: ")
 
     if valid_firstname(first_name):
-        logger.info("first name is valid")
+        logger.info("The User  first name is valid")
     
     else:
         logger.info("first name is not valid")
+    
+    
 
 
 if __name__ == "__main__":
