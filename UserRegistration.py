@@ -42,10 +42,27 @@ def validate_lastname(last_name):
     else:
         return False
 
+def validate_email(mail):
+    ''' 
+    The function takes the mail frome the user and return the its valid or not
+
+    Parameters-str-mail is user given 
+
+    return bool-True or false 
+    '''
+    pattern =r'^[a-zA-Z0-9._%+-]+@bl\.co(\.in)?$'
+
+    if re.match(pattern, mail) :
+        return True
+    else:
+        return False   
+
+
 def main():
     while True:
         first_name = input("Enter first name: ")
         last_name = input("Enter last name: ")
+        mail=input("Enter mail address: ")
     
         if not valid_firstname(first_name):
             logger.info("First name is not valid. Enter a proper first name.")
@@ -54,8 +71,12 @@ def main():
         if not validate_lastname(last_name):
             logger.info("Last name is not valid. Enter a proper last name.")
             continue 
+        if not validate_email(mail):
+            logger.info("Mail is not valid. Enter a proper mail address.")
+            continue 
         
-        logger.info("The User name is valid")
+        logger.info(f"The User name is valid and name is {first_name } {last_name}")
+        logger.info(f'Your email is valid and saved as {mail}')
         break  
              
         
