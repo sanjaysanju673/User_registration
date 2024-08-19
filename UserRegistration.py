@@ -44,19 +44,22 @@ def validate_lastname(last_name):
         return False
 
 def main():
-    first_name=input("Enter a first name: ")
-    last_name=input("Enter a last name: ")
-
-    if valid_firstname(first_name) and validate_lastname(last_name):
+    while True:
+        first_name = input("Enter first name: ")
+        last_name = input("Enter last name: ")
+    
+        if not valid_firstname(first_name):
+            logger.info("First name is not valid. Enter a proper first name.")
+            continue 
+        
+        if not validate_lastname(last_name):
+            logger.info("Last name is not valid. Enter a proper last name.")
+            continue 
+        
         logger.info("The User name is valid")
+        break  
+             
+        
     
-    elif not valid_firstname(first_name):
-        logger.info("first name is not valid")
-    else:
-        logger.info("Last name is not valid")
-    
-    
-
-
 if __name__ == "__main__":
     main()
