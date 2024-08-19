@@ -56,6 +56,21 @@ def validate_email(mail):
         return True
     else:
         return False   
+    
+def validate_mobile_number(mobile):
+    ''' 
+    The function takes the mobile number frome the user and check the valid or not
+
+    Parameters-str-mobile number is user given 
+
+    return bool-True or false 
+    '''
+    pattern =r'\+?[0-9]{2}\s[0-9]{10}$'
+
+    if re.match(pattern, mobile):
+        return True
+    else:
+        return False   
 
 
 def main():
@@ -63,6 +78,7 @@ def main():
         first_name = input("Enter first name: ")
         last_name = input("Enter last name: ")
         mail=input("Enter mail address: ")
+        number=input("Enter a mobile number")
     
         if not valid_firstname(first_name):
             logger.info("First name is not valid. Enter a proper first name.")
@@ -74,9 +90,12 @@ def main():
         if not validate_email(mail):
             logger.info("Mail is not valid. Enter a proper mail address.")
             continue 
-        
-        logger.info(f"The User name is valid and name is {first_name } {last_name}")
-        logger.info(f'Your email is valid and saved as {mail}')
+        if not validate_mobile_number(number):
+            logger.info("Mail is not valid. Enter a proper mail address.")
+            continue 
+        logger.info(f"The User name is valid and name is: {first_name } {last_name}")
+        logger.info(f'Your email is valid and saved as: {mail}')
+        logger.info(f"The mobile number is valid and the number is: {number}")
         break  
              
         
