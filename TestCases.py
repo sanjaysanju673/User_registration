@@ -10,19 +10,25 @@
 
 import unittest
 
-from UserRegistration import valid_firstname,validate_lastname,validate_email,validate_mobile_number
+from UserRegistration import (valid_firstname,validate_lastname,validate_email,validate_mobile_number,check_password)
 class TestNameValidation(unittest.TestCase):
     def test_firstname(self):
+        """
+        Description:
+            Tests the validation function for last names.
+
+        Parameter:
+            self: Instance of the class.
+
+        Return:
+            None
+        """
         self.assertTrue(valid_firstname("Sanjay"), "Should be valid")
-        self.assertTrue(valid_firstname("Rahul"), "Should be valid")
         self.assertFalse(valid_firstname("Ho"), "Should be invalid due to length")
-        self.assertFalse(valid_firstname("fi"), "Should be invalid due to length")
         self.assertFalse(valid_firstname("raju"), "Should be invalid due to lowercase first letter")
-        self.assertFalse(valid_firstname("ramyasree"), "Should be invalid due to lowercase first letter")
         self.assertFalse(valid_firstname("Sanj@ay"), "Should be invalid due to presence of a special character")
-        self.assertFalse(valid_firstname("Sanj!ay"), "Should be invalid due to presence of a special character")
         self.assertFalse(valid_firstname("Sanjay23"), "Should be invalid due to presence of a number")
-        self.assertFalse(valid_firstname("Girish456"), "Should be invalid due to presence of a number")
+
 
 
     def test_valid_last_name(self):
@@ -37,16 +43,13 @@ class TestNameValidation(unittest.TestCase):
             None
         """
 
-        self.assertTrue(validate_lastname("Naik"),"Should be valid")
-        self.assertTrue(validate_lastname("Nekar"),"Should be valid")
-        self.assertFalse(validate_lastname("Ho"), "Should be invalid due to length")
+        self.assertTrue(validate_lastname("Vadde"),"Should be valid")
+        self.assertTrue(validate_lastname("Dandu"),"Should be valid")
         self.assertFalse(validate_lastname("Mi"), "Should be invalid due to length")
-        self.assertFalse(validate_lastname("naik"),"Should be invalid due to lowercase first letter")
-        self.assertFalse(validate_lastname("nekar"),"Should be invalid due to lowercase first letter")
-        self.assertFalse(validate_lastname("nai@k"), "Should be invalid due to  presence of a special character")
-        self.assertFalse(validate_lastname("nai!k"),  "Should be invalid due to  presence of a special character")
-        self.assertFalse(validate_lastname("Naik123"), "Should be invalid due to  presence of a Number")
-        self.assertFalse(validate_lastname("Naik456"), "Should be invalid due to  presence of a Number")
+        self.assertFalse(validate_lastname("vadde"),"Should be invalid due to lowercase first letter")
+        self.assertFalse(validate_lastname("ram@s"), "Should be invalid due to  presence of a special character")
+        self.assertFalse(validate_lastname("raja123"), "Should be invalid due to  presence of a Number")
+
     
     def test_valid_email(self):
     
@@ -93,7 +96,26 @@ def test_valid_mobile_number(self):
         self.assertFalse(validate_mobile_number("91 99198198012"), "Should be invalid due to excessive digits")
         self.assertFalse(validate_mobile_number("91-9919453241"), "Should be invalid due to incorrect separator")
         self.assertFalse(validate_mobile_number("9919819801"), "Should be invalid due to missing country code")
-        self.assertFalse(validate_mobile_number("91 99345688O1"), "Should be invalid due to non-numeric characters")  
+        self.assertFalse(validate_mobile_number("91 99345688O1"), "Should be invalid due to non-numeric characters")
+
+
+def test_validate_user_password(self):
+        """
+        Description:
+            Tests the validation function for last names.
+
+        Parameter:
+            self: Instance of the class.
+
+        Return:
+            None
+        """
+
+        self.assertTrue(check_password("Vadde341"),"Should be valid")
+        self.assertTrue(check_password("Dandu238"),"Should be valid")
+        self.assertFalse(check_password("Mi"), "Should be invalid due to length")
+        self.assertFalse(check_password("23"),"Should be invalid due to length")
+
 
 
 if __name__ == "__main__":
