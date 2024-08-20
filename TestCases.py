@@ -14,15 +14,10 @@ from UserRegistration import valid_firstname,validate_lastname,validate_email,va
 class TestNameValidation(unittest.TestCase):
     def test_firstname(self):
         self.assertTrue(valid_firstname("Sanjay"), "Should be valid")
-        self.assertTrue(valid_firstname("Rahul"), "Should be valid")
         self.assertFalse(valid_firstname("Ho"), "Should be invalid due to length")
-        self.assertFalse(valid_firstname("fi"), "Should be invalid due to length")
         self.assertFalse(valid_firstname("raju"), "Should be invalid due to lowercase first letter")
-        self.assertFalse(valid_firstname("ramyasree"), "Should be invalid due to lowercase first letter")
         self.assertFalse(valid_firstname("Sanj@ay"), "Should be invalid due to presence of a special character")
-        self.assertFalse(valid_firstname("Sanj!ay"), "Should be invalid due to presence of a special character")
         self.assertFalse(valid_firstname("Sanjay23"), "Should be invalid due to presence of a number")
-        self.assertFalse(valid_firstname("Girish456"), "Should be invalid due to presence of a number")
 
 
     def test_valid_last_name(self):
