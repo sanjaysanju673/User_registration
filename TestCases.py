@@ -70,6 +70,8 @@ class TestNameValidation(unittest.TestCase):
         self.assertFalse(validate_email("sanjay@gmailcom"), "Should be invalid due to missing dot in domain")
         self.assertFalse(validate_email("@bl.co"), "Should be invalid due to missing user part")
         self.assertFalse(validate_email("sanjay@domain.c"), "Should be invalid due to TLD being too short")
+        
+
 
     def test_valid_mobile_number(self):
     
@@ -103,10 +105,12 @@ class TestNameValidation(unittest.TestCase):
             None
         """
 
-        self.assertTrue(check_password("Vadde341"),"Should be valid")
-        self.assertTrue(check_password("Dandu238"),"Should be valid")
+        self.assertTrue(check_password("Vadde@341"),"Should be valid")
+        self.assertTrue(check_password("Dandu@238"),"Should be valid")
         self.assertFalse(check_password("dandu"),'shoud be invalid due to lowercase and does\'t have numeric number')
         self.assertFalse(check_password("Mi"), "Should be invalid due to length")
+        self.assertFalse(check_password("Minmm234"), "Should be invalid due to absent of the special charecter")
+
 
 
 
