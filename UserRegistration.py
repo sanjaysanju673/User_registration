@@ -72,32 +72,59 @@ def validate_mobile_number(mobile):
     else:
         return False   
 
+def check_password(User_password):
+    ''' 
+    The function takes the user password and check the it has valid length or not.
+
+    Parameters-str-User Password
+
+    return bool-True or false 
+    '''
+
+    pattern =r'[a-zA-z0-9]{8,}'
+
+    if re.match(pattern, User_password):
+           return True
+    
+    else:
+        return False 
+
+
+
 
 def main():
-    while True:
-        first_name = input("Enter first name: ")
-        last_name = input("Enter last name: ")
-        mail=input("Enter mail address: ")
-        number=input("Enter a mobile number")
-    
-        if not valid_firstname(first_name):
-            logger.info("First name is not valid. Enter a proper first name.")
-            continue 
+    try:
+        while True:
+            first_name = input("Enter first name: ")
+            last_name = input("Enter last name: ")
+            mail=input("Enter mail address: ")
+            number=input("Enter a mobile number")
+            user_password=input("Enter user password: ")
         
-        if not validate_lastname(last_name):
-            logger.info("Last name is not valid. Enter a proper last name.")
-            continue 
-        if not validate_email(mail):
-            logger.info("Mail is not valid. Enter a proper mail address.")
-            continue 
-        if not validate_mobile_number(number):
-            logger.info("Mail is not valid. Enter a proper mail address.")
-            continue 
-        logger.info(f"The User name is valid and name is: {first_name } {last_name}")
-        logger.info(f'Your email is valid and saved as: {mail}')
-        logger.info(f"The mobile number is valid and the number is: {number}")
-        break  
-             
+            if not valid_firstname(first_name):
+                logger.info("First name is not valid. Enter a proper first name.")
+                continue 
+            
+            if not validate_lastname(last_name):
+                logger.info("Last name is not valid. Enter a proper last name.")
+                continue 
+            if not validate_email(mail):
+                logger.info("Mail is not valid. Enter a proper mail address.")
+                continue 
+            if not validate_mobile_number(number):
+                logger.info("Mail is not valid. Enter a proper mail address.")
+                continue 
+            if not check_password(user_password):
+                logger.info("Password is not valid. Enter proper password.")
+                continue 
+            
+            logger.info(f"The User name is valid and name is: {first_name } {last_name}")
+            logger.info(f'Your email is valid and saved as: {mail}')
+            logger.info(f"The mobile number is valid and the number is: {number}")
+            logger.info(f'Your password is valid')
+            break  
+    except Exception as e:
+        logger.info('invalid input',e)
         
 if __name__ == "__main__":
     main()
