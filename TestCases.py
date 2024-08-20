@@ -64,12 +64,28 @@ class TestNameValidation(unittest.TestCase):
             None
         """
 
-        self.assertTrue(validate_email("abc.xyz@bl.co.in"), "Should be valid")
-        self.assertTrue(validate_email("sanjay@bl.co"), "Should be valid")
-        self.assertFalse(validate_email("sanjay@blco"), "Should be invalid due to missing dot before TLD")
-        self.assertFalse(validate_email("sanjay@gmailcom"), "Should be invalid due to missing dot in domain")
-        self.assertFalse(validate_email("@bl.co"), "Should be invalid due to missing user part")
-        self.assertFalse(validate_email("sanjay@domain.c"), "Should be invalid due to TLD being too short")
+        self.assertTrue(validate_email('abc@yahoo.com'))
+        self.assertTrue(validate_email('abc-100@yahoo.com'))
+        self.assertTrue(validate_email('abc.100@yahoo.com'))
+        self.assertTrue(validate_email('abc111@abc.com'))
+        self.assertTrue(validate_email('abc-100@abc.net'))
+        self.assertTrue(validate_email('abc.100@abc.com.au'))
+        self.assertTrue(validate_email('abc@1.com'))
+        self.assertTrue(validate_email('abc@gmail.com.com'))
+        self.assertTrue(validate_email('abc+100@gmail.com'))
+
+        self.assertFalse(validate_email('abc'))
+        self.assertFalse(validate_email('abc@.com.my'))
+        self.assertFalse(validate_email('abc123@gmail.a'))
+        self.assertFalse(validate_email('abc123@.com'))
+        self.assertFalse(validate_email('abc123@.com.com'))
+        self.assertFalse(validate_email('abc()*@gmail.com'))
+        self.assertFalse(validate_email('.abc@abc.com'))
+        self.assertFalse(validate_email('abc@%*.com'))
+        self.assertFalse(validate_email('abc..2002@gmail.com'))
+        self.assertFalse(validate_email('abc@abc@gmail.com'))
+        self.assertFalse(validate_email('abc@gmail.com.1a'))
+        self.assertFalse(validate_email('abc@gmail.com.aa.au'))
         
 
 

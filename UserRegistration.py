@@ -50,9 +50,9 @@ def validate_email(mail):
 
     return bool-True or false 
     '''
-    pattern =r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    pattern =r'^[a-zA-Z0-9]+(?:[._%+-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$'
 
-    if re.match(pattern, mail) :
+    if re.match(pattern, mail):
         return True
     else:
         return False   
@@ -111,7 +111,7 @@ def main():
                 attempts +=1
                 continue 
             if not validate_email(mail):
-                logger.info("Mail is not valid. Enter a proper mail address.")
+                logger.info("Email is not valid. Enter a proper mail address.")
                 attempts +=1
                 continue 
             if not validate_mobile_number(number):
