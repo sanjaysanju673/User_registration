@@ -71,7 +71,7 @@ class TestNameValidation(unittest.TestCase):
         self.assertFalse(validate_email("@bl.co"), "Should be invalid due to missing user part")
         self.assertFalse(validate_email("sanjay@domain.c"), "Should be invalid due to TLD being too short")
 
-def test_valid_mobile_number(self):
+    def test_valid_mobile_number(self):
     
         """
         Description:
@@ -91,7 +91,7 @@ def test_valid_mobile_number(self):
         self.assertFalse(validate_mobile_number("91-9919453241"), "Should be invalid due to incorrect separator")
 
 
-def test_validate_user_password(self):
+    def test_validate_user_password(self):
         """
         Description:
             Tests the validation function for user password
@@ -105,8 +105,8 @@ def test_validate_user_password(self):
 
         self.assertTrue(check_password("Vadde341"),"Should be valid")
         self.assertTrue(check_password("Dandu238"),"Should be valid")
+        self.assertFalse(check_password("dandu123"),'shoud be invalid due to lowercase')
         self.assertFalse(check_password("Mi"), "Should be invalid due to length")
-        self.assertFalse(check_password("23"),"Should be invalid due to length")
 
 
 
