@@ -32,9 +32,10 @@ class TestNameValidation(unittest.TestCase):
             None
         """
 
-        self.assertTrue(validate_lastname("Naik"),"Should be valid")
-        self.assertTrue(validate_lastname("Nekar"),"Should be valid")
+        self.assertTrue(validate_lastname("Vadde"),"Should be valid")
+        self.assertTrue(validate_lastname("Dandu"),"Should be valid")
         self.assertFalse(validate_lastname("Ho"), "Should be invalid due to length")
+<<<<<<< HEAD
         self.assertFalse(validate_lastname("Mi"), "Should be invalid due to length")
         self.assertFalse(validate_lastname("naik"),"Should be invalid due to lowercase first letter")
         self.assertFalse(validate_lastname("nekar"),"Should be invalid due to lowercase first letter")
@@ -48,6 +49,11 @@ class TestNameValidation(unittest.TestCase):
         """
         Description:
             Tests the validation function for emails.
+=======
+        self.assertFalse(validate_lastname("vadde"),"Should be invalid due to lowercase first letter")
+        self.assertFalse(validate_lastname("ra@m"), "Should be invalid due to  presence of a special character")
+        self.assertFalse(validate_lastname("kumar123"), "Should be invalid due to  presence of a Number")
+>>>>>>> UC-2
 
         Parameter:
             self: Instance of the class.
