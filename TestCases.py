@@ -105,7 +105,7 @@ class TestNameValidation(unittest.TestCase):
 
         self.assertTrue(check_password("Vadde341"),"Should be valid")
         self.assertTrue(check_password("Dandu238"),"Should be valid")
-        self.assertFalse(check_password("dandu123"),'shoud be invalid due to lowercase')
+        self.assertFalse(check_password("dandu"),'shoud be invalid due to lowercase and does\'t have numeric number')
         self.assertFalse(check_password("Mi"), "Should be invalid due to length")
 
 

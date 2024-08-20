@@ -81,7 +81,7 @@ def check_password(User_password):
     return bool-True or false 
     '''
 
-    pattern =r'^(?=.*[A-Z])[a-zA-Z0-9]{8}$'
+    pattern =r'^(?=.*[A-Z])[a-zA-Z0-9]{8,}$'
 
     if re.match(pattern, User_password):
            return True
