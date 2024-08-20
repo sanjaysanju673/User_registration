@@ -14,3 +14,11 @@
 2024-08-20 11:50:03,031:INFO:UserRegistration.py:Your email is valid and saved as: Sanju@bl.co
 2024-08-20 11:50:03,031:INFO:UserRegistration.py:The mobile number is valid and the number is: 91 9553175017
 2024-08-20 11:50:03,031:INFO:UserRegistration.py:Your password is valid
+2024-08-20 13:09:02,870:INFO:UserRegistration.py:Last name is not valid. Enter a proper last name.
+2024-08-20 14:19:07,910:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
+2024-08-20 14:19:10,154:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
+2024-08-20 14:19:12,203:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
+2024-08-20 14:19:17,273:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
+2024-08-20 14:19:19,726:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
+2024-08-20 14:19:21,095:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
+2024-08-20 14:19:22,985:INFO:UserRegistration.py:First name is not valid. Enter a proper first name.
