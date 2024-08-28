@@ -95,13 +95,13 @@ def check_password(User_password):
 def main():
     try:
         attempts =0
-        while attempts <4 :
+        while attempts <4:
             first_name = input("Enter first name: ")
             last_name = input("Enter last name: ")
             mail=input("Enter mail address: ")
             number=input("Enter a mobile number")
             user_password=input("Enter user password: ")
-            if not valid_firstname(first_name):
+            if  valid_firstname(first_name):
                 logger.info("First name is not valid. Enter a proper first name.")
                 attempts +=1
                 continue 
