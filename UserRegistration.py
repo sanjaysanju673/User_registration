@@ -36,7 +36,7 @@ def main():
         logger.info("The User  first name is valid")
     
     else:
-        logger.info("first name is not valid")
+        logger.warning("first name is not valid")
     
     
 
