@@ -1,3 +1,7 @@
 2024-08-19 17:48:15,313:INFO:UserRegistration.py:first name is not valid
 2024-08-19 18:13:11,658:INFO:UserRegistration.py:first name is not valid
 2024-08-19 19:55:51,437:INFO:UserRegistration.py:first name is not valid
+2024-09-12 15:49:18,133:WARNING:UserRegistration.py:first name is not valid
+2024-09-12 15:49:28,254:INFO:UserRegistration.py:The User  first name is valid
+2024-09-12 17:55:53,482:WARNING:UserRegistration.py:first name is not valid
+2024-09-12 17:56:16,219:WARNING:UserRegistration.py:first name is not valid
