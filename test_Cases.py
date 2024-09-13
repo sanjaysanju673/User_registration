@@ -1,4 +1,11 @@
-# test_user_registration.py
+'''
+@Author: v sanjay kumar
+@Date: 2024-08-19 11:30:30
+@Last Modified by: v sanjay kumar
+@Last Modified time: 2024-08-19 11:30:30.
+@Title :Python programs of User Registration.
+
+'''
 
 import pytest
 from UserRegistration import valid_firstname, validate_lastname
