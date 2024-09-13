@@ -50,3 +50,7 @@ def test_valid_email():
     assert validate_email("sanjay@bl.co.in.") is False, "Should be invalid due to trailing dot"
     assert validate_email("sanjay@gmailcom") is False, "Should be invalid due to missing dot in domain"
     assert validate_email("@bl.co") is False, "Should be invalid due to missing user part"
+
+
+if __name__ == "__main__":
+    pytest.main()
