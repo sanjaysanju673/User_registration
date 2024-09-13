@@ -8,111 +8,101 @@
 '''
 
 
-import unittest
 
-from UserRegistration import (valid_firstname,validate_lastname,validate_email,validate_mobile_number,check_password)
-class TestNameValidation(unittest.TestCase):
-    def test_firstname(self):
-        """
-        Description:
-            Tests the validation function for last names.
+import pytest
+from UserRegistration import (valid_firstname, validate_lastname, validate_email, validate_mobile_number, check_password)
 
-        Parameter:
-            self: Instance of the class.
+def test_firstname():
+    """
+    Description:
+        Tests the validation function for first names.
 
-        Return:
-            None
-        """
-        self.assertTrue(valid_firstname("Sanjay"), "Should be valid")
-        self.assertFalse(valid_firstname("Ho"), "Should be invalid due to length")
-        self.assertFalse(valid_firstname("raju"), "Should be invalid due to lowercase first letter")
-        self.assertFalse(valid_firstname("Sanj@ay"), "Should be invalid due to presence of a special character")
-        self.assertFalse(valid_firstname("Sanjay23"), "Should be invalid due to presence of a number")
+    Parameter:
+        None
 
+    Return:
+        None
+    """
+    assert valid_firstname("Sanjay") is True, "Should be valid"
+    assert valid_firstname("Rahul") is True, "Should be valid"
+    assert valid_firstname("Ho") is False, "Should be invalid due to length"
+    assert valid_firstname("fi") is False, "Should be invalid due to length"
+    assert valid_firstname("raju") is False, "Should be invalid due to lowercase first letter"
+    assert valid_firstname("Sanj@ay") is False, "Should be invalid due to presence of a special character"
+    assert valid_firstname("Sanjay23") is False, "Should be invalid due to presence of a number"
 
+def test_valid_last_name():
+    """
+    Description:
+        Tests the validation function for last names.
 
-    def test_valid_last_name(self):
-        """
-        Description:
-            Tests the validation function for last names.
+    Parameter:
+        None
 
-        Parameter:
-            self: Instance of the class.
+    Return:
+        None
+    """
+    assert validate_lastname("Vadde") is True, "Should be valid"
+    assert validate_lastname("Dandu") is True, "Should be valid"
+    assert validate_lastname("Mi") is False, "Should be invalid due to length"
+    assert validate_lastname("vadde") is False, "Should be invalid due to lowercase first letter"
+    assert validate_lastname("ram@s") is False, "Should be invalid due to presence of a special character"
+    assert validate_lastname("raja123") is False, "Should be invalid due to presence of a number"
 
-        Return:
-            None
-        """
+def test_valid_email():
+    """
+    Description:
+        Tests the validation function for emails.
 
-        self.assertTrue(validate_lastname("Vadde"),"Should be valid")
-        self.assertTrue(validate_lastname("Dandu"),"Should be valid")
-        self.assertFalse(validate_lastname("Mi"), "Should be invalid due to length")
-        self.assertFalse(validate_lastname("vadde"),"Should be invalid due to lowercase first letter")
-        self.assertFalse(validate_lastname("ram@s"), "Should be invalid due to  presence of a special character")
-        self.assertFalse(validate_lastname("raja123"), "Should be invalid due to  presence of a Number")
+    Parameter:
+        None
 
-    
-    def test_valid_email(self):
-    
-        """
-        Description:
-            Tests the validation function for emails.
+    Return:
+        None
+    """
+    assert validate_email("abc.xyz@bl.co.in") is True, "Should be valid"
+    assert validate_email("sanjay@bl.co") is True, "Should be valid"
+    assert validate_email("sanjay@blco") is False, "Should be invalid due to missing dot before TLD"
+    assert validate_email("sanjay@gmailcom") is False, "Should be invalid due to missing dot in domain"
+    assert validate_email("@bl.co") is False, "Should be invalid due to missing user part"
+    assert validate_email("sanjay@domain.c") is False, "Should be invalid due to TLD being too short"
 
-        Parameter:
-            self: Instance of the class.
+def test_valid_mobile_number():
+    """
+    Description:
+        Tests the validation function for mobile numbers.
 
-        Return:
-            None
-        """
+    Parameter:
+        None
 
-        self.assertTrue(validate_email("abc.xyz@bl.co.in"), "Should be valid")
-        self.assertTrue(validate_email("sanjay@bl.co"), "Should be valid")
-        self.assertFalse(validate_email("sanjay@blco"), "Should be invalid due to missing dot before TLD")
-        self.assertFalse(validate_email("sanjay@gmailcom"), "Should be invalid due to missing dot in domain")
-        self.assertFalse(validate_email("@bl.co"), "Should be invalid due to missing user part")
-        self.assertFalse(validate_email("sanjay@domain.c"), "Should be invalid due to TLD being too short")
-        
+    Return:
+        None
+    """
+    assert validate_mobile_number("91 8431852455") is True, "Should be valid"
+    assert validate_mobile_number("91 1234567890") is True, "Should be valid"
+    assert validate_mobile_number("+44 1234567890") is True, "Should be valid"
+    assert validate_mobile_number("918431852455") is False, "Should be invalid due to missing space"
+    assert validate_mobile_number("91 84318524") is False, "Should be invalid due to insufficient digits"
+    assert validate_mobile_number("91 99198198012") is False, "Should be invalid due to excessive digits"
+    assert validate_mobile_number("91-9919453241") is False, "Should be invalid due to incorrect separator"
 
+def test_validate_user_password():
+    """
+    Description:
+        Tests the validation function for user passwords.
 
-    def test_valid_mobile_number(self):
-    
-        """
-        Description:
-            Tests the validation function for mobile number.
+    Parameter:
+        None
 
-        Parameter:
-            self: Instance of the class.
-
-        Return:
-            None
-        """    
-        self.assertTrue(validate_mobile_number("91 8431852455"), "Should be valid")
-        self.assertTrue(validate_mobile_number("91 1234567890"), "Should be valid")
-        self.assertFalse(validate_mobile_number("918431852455"), "Should be invalid due to missing space")
-        self.assertFalse(validate_mobile_number("91 84318524"), "Should be invalid due to insufficient digits")
-        self.assertFalse(validate_mobile_number("91 99198198012"), "Should be invalid due to excessive digits")
-        self.assertFalse(validate_mobile_number("91-9919453241"), "Should be invalid due to incorrect separator")
-
-
-    def test_validate_user_password(self):
-        """
-        Description:
-            Tests the validation function for user password
-
-        Parameter:
-            self: Instance of the class.
-
-        Return:
-            None
-        """
-
-        self.assertTrue(check_password("Vadde@341"),"Should be valid")
-        self.assertTrue(check_password("Dandu@238"),"Should be valid")
-        self.assertFalse(check_password("dandu"),'shoud be invalid due to lowercase and does\'t have numeric number')
-        self.assertFalse(check_password("Mi"), "Should be invalid due to length")
-        self.assertFalse(check_password("Minmm234"), "Should be invalid due to absent of the special charecter")
+    Return:
+        None
+    """
+    assert check_password("Vadde@341") is True, "Should be valid"
+    assert check_password("Dandu@238") is True, "Should be valid"
+    assert check_password("dandu") is False, "Should be invalid due to lowercase and missing numeric character"
+    assert check_password("Mi") is False, "Should be invalid due to length"
+    assert check_password("Minmm234") is False, "Should be invalid due to absence of a special character"
 
 
-
-
-if __name__ == "__main__":
-    unittest.main()
+if __name__=="__main__":
+    pytest.main()
